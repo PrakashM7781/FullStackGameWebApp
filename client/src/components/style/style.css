@@ -1,0 +1,601 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+.head {
+  position: fixed;
+  height: 60px;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  background-image: url("E:\GameWebMain\gameweb\public\img\backgroundHeader.jpg");
+}
+
+#logo img {
+  float: left;
+  align-items: baseline;
+  padding: 0px;
+  margin-left: 25px;
+  margin-bottom: 0%;
+  margin-top: 0%;
+  overflow: hidden;
+  height: 60px;
+  width: 150px;
+
+  mix-blend-mode: lighten;
+}
+
+.head .search-container {
+  float: right;
+  margin-top: 1%;
+}
+
+.head input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.head .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.head .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .head .search-container {
+    float: none;
+  }
+
+  .head input[type="text"],
+  .head .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+
+  .topnav input[type="text"] {
+    border: 1px solid #ccc;
+  }
+}
+
+.slogen h4 {
+  display: inline-block;
+  color: #ccc;
+  position: relative;
+  top: -27px;
+}
+
+.wrapper {
+  position: relative;
+  top: -40px;
+  display: inline-flex;
+  list-style: none;
+  margin-left: 97px;
+  margin-bottom: 0%;
+  margin-top: 1%;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  color: black;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 7px;
+  width: 15px;
+  height: 15px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0265 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 0.8rem;
+  background: #fff;
+  color: #940f0f;
+  padding: 5px 8px;
+  border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0265 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0265 1.55);
+}
+
+.wrapper.icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper.icon:hover span,
+.wrapper.icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #3b5998;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #c32aa3;
+  color: #fff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #ff0000;
+  color: #fff;
+}
+
+.wrapper .discord:hover,
+.wrapper .discord:hover .tooltip,
+.wrapper .discord:hover .tooltip::before {
+  background: #042ca5;
+  color: #fff;
+}
+
+/* Navigation bar CSS */
+.topnav {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  left: 0px;
+  overflow: hidden;
+  background-color: rgba(183, 221, 246, 0.951);
+  border: 2px solid;
+  border-radius: 0px;
+  border-color: -webkit-linear-gradient(
+    left,
+    #003366,
+    #004080,
+    #0059b3,
+    #0073e6
+  );
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+.topnav a:hover {
+  background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+  color: white;
+  /* border-radius: 25% 10%; */
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.login {
+  float: right;
+  text-decoration: none;
+}
+
+.i {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 11px 38px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+/* Footer CSS */
+
+.contain {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.footer-col {
+  width: 25%;
+  padding: -1 15px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 10px;
+}
+
+h4 {
+  color: white;
+  padding: 40px;
+}
+
+ul {
+  list-style-type: none;
+  color: white;
+}
+
+.footer {
+  background-image: url("E:\GameWebMain\gameweb\public\img\backgroundHeader.jpg");
+  padding: 5px 0;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  /* width: 100vv; */
+  height: 372px;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+}
+
+.copyright p {
+  text-align: center;
+  padding: 10px;
+  color: turquoise;
+  font-size: 10px;
+}
+
+.footer img {
+  height: 140px;
+  width: 270px;
+  padding: 10px;
+  mix-blend-mode: lighten;
+  position: relative;
+  left: 40%;
+}
+
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-links {
+  padding: 10px;
+}
+
+/*reponsive */
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+/* Slider bas CSS */
+
+/* .bg {
+    display: inline-block;
+} */
+.slidershow {
+  position: relative;
+  top: 100px;
+  /* width: 1333px; */
+  height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.middle {
+  position: inherit;
+  top: 100px;
+  /* left: 50%; */
+  margin: 10% 0 1.3% 1.3%;
+  z-index: -1;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.bar {
+  width: 50px;
+  height: 10px;
+  border: 3px solid white;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.bar:hover {
+  background: white;
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.radio {
+  display: none;
+}
+
+.slides {
+  width: 500%;
+  height: 100%;
+  display: flex;
+
+  /* position: relative;
+      top: 100px;
+      z-index: -1; */
+}
+
+.slide {
+  width: 20%;
+  transition: 0.6s;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+
+#r2:checked ~ .s1 {
+  margin-left: -20%;
+}
+
+#r3:checked ~ .s1 {
+  margin-left: -40%;
+}
+
+#r4:checked ~ .s1 {
+  margin-left: -60%;
+}
+
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 800px;
+  margin-top: 450px;
+}
+
+.navigation-auto div {
+  padding: 5px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+/* Scroll to top button */
+#progress {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 70px;
+  width: 70px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#progress-value {
+  display: block;
+  height: calc(100% - 15px);
+  width: calc(100% - 15px);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  color: #001a2e;
+}
+
+/* Latest news  vala text */
+#latest {
+  position: relative;
+  left: 10px;
+  top: 0px;
+  z-index: -1;
+  text-decoration: underline;
+}
+
+/* News Card CSS */
+
+.containers1 {
+  display: flex;
+  height: 100%;
+  width: 100%; /* Adjust as needed */
+}
+.containers1 .content p {
+  text-align: left;
+}
+.image {
+  flex: 0 0 33.33%; /* 1/3 width */
+  padding: 16px; /* Optional padding for image */
+  width: 100%;
+}
+.datetime {
+  margin-left: 0rem;
+}
+.Published {
+  margin-left: 4rem;
+  margin-right: 0;
+}
+
+.spacer {
+  flex: 0 0 23.33%; /* 1/3 width */
+  /* Add optional styles for the spacer, e.g. background color */
+}
+
+.w-display-card-content .w-display-card-category {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+.tag-lable-text {
+  display: inline-flex;
+  font-family: roboto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: black;
+  text-transform: uppercase;
+}
+.w-display-card-content .display-card-title {
+  line-height: 1.3;
+  font-family: khand;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #181818;
+  margin: 0 0 0.75rem;
+}
+h5 {
+  margin-block-start: 1.67rem;
+  margin-block-end: 1.67rem;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.display-card-excerpt p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.w-display-card-content .display-card-excerpt {
+  margin: 0 0 5rem;
+  font-family: roboto;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #181818;
+  line-height: 1.3rem;
+}
+.w-display-card-content .w-display-card-details {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+.w-display-card-content .w-display-card-details .meta-text-author {
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: 400;
+  color: #777;
+}
+a,
+button,
+input {
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+.w-display-card-content .w-display-card-details .display-card-author {
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: 700;
+  color: #f47938;
+}
+.w-display-card-content .w-display-card-details .display-card-author {
+  color: #777;
+}
+.content {
+  margin-top: 2rem;
+}
