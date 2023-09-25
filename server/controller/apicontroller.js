@@ -1,9 +1,11 @@
 import bcrypt from "bcrypt";
 import UserModel from "../model/usermodel.js";
+import Jwt from "jsonwebtoken";
+import ENV from "../config.js";
 
 export const register = async (req, res) => {
   try {
-    const { username, password, email } = req.body;
+    const { username, name, password, email } = req.body;
 
     const existsUsername = await UserModel.findOne({ username });
     if (existsUsername) {
@@ -23,6 +25,8 @@ export const register = async (req, res) => {
         email,
       });
       await user.save();
+      const savedUser = await UserModel.findOne({ username: user.username });
+
       return res.status(200).send({ msg: "Registered Successfully" });
     } else {
       return res.status(400).send({ error: "Password is required" });
@@ -35,17 +39,30 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await UserModel.findOne({ username });
+    const user = await UserModel.findOne({ username, password });
     if (!user) {
       res.status(404).send({ error: "User not found" });
+      return; // Add return to exit the function after sending the response
     }
 
-    const isPassword = await bcrypt.compare(password, password);
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    if (isPassword) {
-      res.status(200).send({ msg: "Login Successfully" });
+    if (isPasswordValid) {
+      // Create JWT token
+      const token = Jwt.sign(
+        {
+          userId: user._id,
+          username: user.username,
+        },
+        ENV.JWT_SECRET,
+        { expiresIn: "24h" }
+      );
+
+      return res
+        .status(200)
+        .send({ msg: "Login Successfully", username, token });
     } else {
-      res.status(505).send({ msg: "Invalid Password" });
+      res.status(401).send({ error: "Invalid Password" });
     }
   } catch (error) {
     return res.status(500).send({ error });
@@ -53,7 +70,22 @@ export const login = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
-  res.json("getUser route");
+  const { username } = req.params;
+
+  try {
+    if (!username) {
+      return res.status(501).send("Invalid Username");
+    }
+
+    UserModel.findOne({ username }, (err, user) => {
+      if (err) return res.status(500).send({ err });
+      if (!user) return res.status(501).send("User not found");
+
+      return res.status(201).send(user);
+    });
+  } catch (error) {
+    return res.status(404).send({ error: "Cannot Find" });
+  }
 };
 
 export const updateUser = async (req, res) => {

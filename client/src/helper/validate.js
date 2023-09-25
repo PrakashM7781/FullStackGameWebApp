@@ -16,23 +16,51 @@ export const validateCredentials = (values) => {
   } else if (!/[`!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/.test(values.password)) {
     errors.password = toast.error("Password must contain a special character");
   }
-  console.log(errors);
+
+  if (values.password !== values.cpassword) {
+    errors.password = toast.error("Password does not match...");
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!values.email) {
+    errors.email = toast.error("Email Required...");
+  } else if (!values.email.match(emailRegex)) {
+    errors.email = toast.error("Invalid email...");
+  }
+
+  if (!values.name) {
+    errors.name = toast.error("Name Required...");
+  } else if (values.name.match(emailRegex)) {
+    errors.name = toast.error("Invalid name...");
+  }
   return errors;
 };
 
-export const validateSignupCredidentials = (values) => {
+export const validateLoginCredentials = (values) => {
   const errors = {};
 
-  if (!values.name) {
-    errors.name = toast.error("Name Required");
-  } else if (/[`!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/.test(values.name)) {
-    errors.name = toast.error("Name should not contain a special Character");
+  if (!values.username) {
+    errors.username = toast.error("Username Required..");
   }
 
-  if (!values.email) {
-    errors.email = toast.error("Email Required");
-  }
-  if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/i.test(values.email)) {
-    errors.email = "Invalid email format.";
+  if (!values.password) {
+    errors.password = toast.error("Password Required...");
   }
 };
+
+// export const validateSignupCredidentials = (values) => {
+//   const errors = {};
+
+//   if (!values.name) {
+//     errors.name = toast.error("Name Required");
+//   } else if (/[`!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/.test(values.name)) {
+//     errors.name = toast.error("Name should not contain a special Character");
+//   }
+
+//   if (!values.email) {
+//     errors.email = toast.error("Email Required");
+//   }
+//   if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/i.test(values.email)) {
+//     errors.email = "Invalid email format.";
+//   }
+// };

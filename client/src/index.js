@@ -9,6 +9,7 @@ import Navigation from "./components/navigation";
 import Footer from "./components/footer";
 import Slider from "./components/slider";
 import Signup from "./components/signup";
+import Login from "./components/login";
 
 const AppContainer = () => {
   return (
@@ -32,6 +33,9 @@ const AppContainer = () => {
         </Routes>
         <Routes>
           <Route path="/signup" element={<Signup />} />
+        </Routes>
+        <Routes>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>

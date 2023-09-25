@@ -3,16 +3,17 @@ body {
 
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 .form {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 323px;
   width: 400px;
   border: 1px solid black;
   align-items: center;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10rem;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
@@ -50,24 +51,6 @@ button:hover {
 input:focus {
   border: 1px solid rgb(192, 192, 192);
 }
-.terms {
-  margin-top: 0.2rem;
-  margin-left: -113px;
-}
-.terms input {
-  height: 1em;
-  width: 1em;
-  vertical-align: text-top;
-  cursor: pointer;
-}
-.terms label {
-  font-size: 0.8rem;
-  color: #fff;
-}
-.terms a {
-  color: #3207f1;
-  text-decoration: none;
-}
 .member {
   font-size: 0.8rem;
   margin-top: 1.4rem;
@@ -76,4 +59,14 @@ input:focus {
 .member a {
   color: #3207f1;
   text-decoration: none;
+}
+
+.recover {
+  margin-left: 1px;
+  font-size: 0.8rem;
+  margin: 0.3rem 1.4rem 0 255px;
+}
+.recover a {
+  text-decoration: none;
+  color: #3207f1;
 }

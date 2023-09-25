@@ -68,6 +68,16 @@ const News = [
     ],
     breifContent: "Final Fantasy fans, the wait is almost over ",
   },
+  {
+    gamename: "Dev Fantasy XVI",
+    heading:
+      "Final Fantasy XVI Demo Launches Tomorrow, Fans' Long Wait Is Almost Over!",
+    imgsrc: [
+      "/img/Final Fantasycover.jpg",
+      "D:ProjectHTMLContent\the final fantasy\the final fantasyFinal Fantasy 1.jpg",
+    ],
+    breifContent: "Dev Fantasy fans, the wait is almost over ",
+  },
 ];
 
 export default News;
